@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 3.00)
-project(exampleProjectName LANGUAGES C)
-
-# Find math and pthread library
-find_library(MATH m REQUIRED)
+cmake_minimum_required(VERSION 3.29)
+project(mangroveCore LANGUAGES C)
 
 # Create HEADER-ONLY library
 add_library(HEADER-ONLY INTERFACE)
@@ -13,8 +10,6 @@ target_include_directories(HEADER-ONLY INTERFACE ${CMAKE_SOURCE_DIR}/include)
 # Add directory "lib/" to target library
 target_include_directories(PROJECTLIB INTERFACE ${CMAKE_SOURCE_DIR}/lib)
 
-# Target link math to HEADER-ONLY
-target_link_libraries(HEADER-ONLY INTERFACE ${MATH})
 # Target link HEADER-ONLY to PROJECTLIB
 target_link_libraries(HEADER-ONLY INTERFACE PROJECTLIB)
 
